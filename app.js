@@ -57,6 +57,7 @@ const game = () => {
     const computerScore = document.querySelector(".computer-score p");
     playerScore.textContent = pScore;
     computerScore.textContent = cScore;
+    resultat();
   };
 
   const compareHands = (playerChoice, computerChoice) => {
@@ -64,7 +65,7 @@ const game = () => {
     const winner = document.querySelector(".winner");
     //Checking for a tie
     if (playerChoice === computerChoice) {
-      winner.textContent = "It is a tie";
+      winner.textContent = "It's a tie";
       return;
     }
     //check for rock
@@ -113,7 +114,19 @@ const game = () => {
     }
   };
 
+  const resultat = () => {
+    const affichage = document.querySelector(".afficheToi");
+
+    if (pScore === 2) {
+      affichage.textContent = "L'adresse est ...";
+    } else if (cScore === 2) {
+      affichage.textContent = "Raté, pas de soirée cette année";
+    }
+    return;
+  };
+
   // call all the inner function
+
   startGame();
   playMatch();
 };
